@@ -1,14 +1,19 @@
 package com.turingawardee.minpro.entities;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "awardees")
 public class AwardWinner {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    private String AwardedFor;
     private String year;
     private String country;
+    private String description;
     private String affiliation;
     private String image;
     private Timestamp timestamp;
@@ -16,29 +21,29 @@ public class AwardWinner {
     public AwardWinner() {
     }
 
-    public AwardWinner(String name, String awardedFor, String year, String country, String affiliation, String image) {
+    public AwardWinner(String name, String description, String year, String country, String affiliation, String image) {
         this.name = name;
-        AwardedFor = awardedFor;
+        this.description = description;
         this.year = year;
         this.country = country;
         this.affiliation = affiliation;
         this.image = image;
     }
 
-    public AwardWinner(int id, String name, String awardedFor, String year, String country, String affiliation, String image) {
+    public AwardWinner(int id, String name, String description, String year, String country, String affiliation, String image) {
         this.id = id;
         this.name = name;
-        AwardedFor = awardedFor;
+        this.description = description;
         this.year = year;
         this.country = country;
         this.affiliation = affiliation;
         this.image = image;
     }
 
-    public AwardWinner(int id, String name, String awardedFor, String year, String country, String affiliation, String image, Timestamp timestamp) {
+    public AwardWinner(int id, String name, String description, String year, String country, String affiliation, String image, Timestamp timestamp) {
         this.id = id;
         this.name = name;
-        AwardedFor = awardedFor;
+        this.description = description;
         this.year = year;
         this.country = country;
         this.affiliation = affiliation;
@@ -62,12 +67,12 @@ public class AwardWinner {
         this.name = name;
     }
 
-    public String getAwardedFor() {
-        return AwardedFor;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAwardedFor(String awardedFor) {
-        AwardedFor = awardedFor;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getYear() {
