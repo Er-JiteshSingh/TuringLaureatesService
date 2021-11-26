@@ -7,5 +7,4 @@ public interface AwardeeRepository extends CrudRepository<AwardWinner, Integer> 
 
     AwardWinner findById(int id);
 
-
 }

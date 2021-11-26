@@ -18,24 +18,30 @@
     </properties>
     <dependencies>
 
+        <!--        For Web     -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-devtools</artifactId>-->
-        <!--            <scope>runtime</scope>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
+        <!--        For Devtools        -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!--       For JPA Integration     -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!--        Mysql Connector     -->
+        <!--        MariaDB Connector     -->
 
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
@@ -43,11 +49,7 @@
             <version>2.7.3</version>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>mysql</groupId>-->
-        <!--            <artifactId>mysql-connector-java</artifactId>-->
-        <!--            <scope>runtime</scope>-->
-        <!--        </dependency>-->
+        <!--        For Testing     -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

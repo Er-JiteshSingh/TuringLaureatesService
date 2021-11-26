@@ -3,8 +3,7 @@ package com.turingawardee.minpro.controllers;
 import com.turingawardee.minpro.entities.AwardWinner;
 import com.turingawardee.minpro.services.AwardeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,9 +13,22 @@ public class MainController {
     @Autowired
     private AwardeeService awardeeService;
 
-    @GetMapping("/awardees")
+    @GetMapping("/awardee/{id}")                                    //Endpoint For Getting Single Awardee Details
+    public AwardWinner awardee(@PathVariable("id") int id) {
+        AwardWinner winner = awardeeService.getAwardee(id);
+        return winner;
+    }
+
+    @GetMapping("/awardees")                                        //Endpoint For Getting All Awardee Details
     public List<AwardWinner> allAwardees() {
 
         return awardeeService.getAllWinners();
+    }
+
+    @PostMapping("/awardee")                                        //Endpoint For Storing Awardee Details
+    public AwardWinner addAwardee(@RequestBody AwardWinner awardeeDetails) {
+        System.out.println(awardeeDetails.getName());
+        AwardWinner saved = awardeeService.createAwardee(awardeeDetails);
+        return saved;
     }
 }

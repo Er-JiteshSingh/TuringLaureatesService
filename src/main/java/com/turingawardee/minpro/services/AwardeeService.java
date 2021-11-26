@@ -11,12 +11,25 @@ import java.util.List;
 public class AwardeeService {
 
     @Autowired
-    public AwardeeRepository awardeeRepository;
+    private AwardeeRepository awardeeRepository;
 
+    //    Get Single Awardee
+    public AwardWinner getAwardee(int id) {
+        AwardWinner winner = awardeeRepository.findById(id);
+        return winner;
+    }
+
+    //    Get All Awardees
     public List<AwardWinner> getAllWinners() {
 
         List<AwardWinner> allWinners = (List<AwardWinner>) awardeeRepository.findAll();
 
         return allWinners;
+    }
+
+    //    Store New Awardee Details
+    public AwardWinner createAwardee(AwardWinner awardWinner) {
+        AwardWinner saved = awardeeRepository.save(awardWinner);
+        return saved;
     }
 }
