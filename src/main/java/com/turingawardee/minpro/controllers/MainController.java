@@ -27,7 +27,6 @@ public class MainController {
 
     @PostMapping("/awardee")                                                //Endpoint For Storing Awardee Details
     public AwardWinner addAwardee(@RequestBody AwardWinner awardeeDetails) {
-        System.out.println(awardeeDetails.getName());
         AwardWinner saved = awardeeService.createAwardee(awardeeDetails);
         return saved;
     }
@@ -42,4 +41,8 @@ public class MainController {
         return awardeeService.removeAllAwardee();
     }
 
+    @PutMapping("/awardee/{id}")                                   //Endpoint For Update Awardee Details
+    public String awardeeUpdate(@RequestBody AwardWinner awardWinner, @PathVariable("id") int id) {
+        return awardeeService.UpdateDetails(awardWinner, id);
+    }
 }

@@ -44,4 +44,20 @@ public class AwardeeService {
         awardeeRepository.deleteAll();
         return "Deletion All Data Success";
     }
+
+    //    Update Record
+    public String UpdateDetails(AwardWinner awardWinner, int id) {
+
+        AwardWinner winner = awardeeRepository.findById(id);
+
+        winner.setName(awardWinner.getName());
+        winner.setCountry(awardWinner.getCountry());
+        winner.setYear(awardWinner.getYear());
+        winner.setAffiliation(awardWinner.getAffiliation());
+        winner.setDescription(awardWinner.getDescription());
+        winner.setImage(awardWinner.getImage());
+
+        awardeeRepository.save(winner);
+        return "Updation Success";
+    }
 }
