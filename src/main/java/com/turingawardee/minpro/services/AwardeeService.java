@@ -32,4 +32,16 @@ public class AwardeeService {
         AwardWinner saved = awardeeRepository.save(awardWinner);
         return saved;
     }
+
+    //    Delete Awardee Details
+    public String removeAwardee(int id) {
+        awardeeRepository.deleteById(id);
+        return "Deletion Success";
+    }
+
+    //    Delete All Awardee Details
+    public String removeAllAwardee() {
+        awardeeRepository.deleteAll();
+        return "Deletion All Data Success";
+    }
 }

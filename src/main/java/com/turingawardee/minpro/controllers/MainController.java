@@ -13,22 +13,33 @@ public class MainController {
     @Autowired
     private AwardeeService awardeeService;
 
-    @GetMapping("/awardee/{id}")                                    //Endpoint For Getting Single Awardee Details
+    @GetMapping("/awardee/{id}")                                        //Endpoint For Getting Single Awardee Details
     public AwardWinner awardee(@PathVariable("id") int id) {
         AwardWinner winner = awardeeService.getAwardee(id);
         return winner;
     }
 
-    @GetMapping("/awardees")                                        //Endpoint For Getting All Awardee Details
+    @GetMapping("/awardees")                                                //Endpoint For Getting All Awardee Details
     public List<AwardWinner> allAwardees() {
 
         return awardeeService.getAllWinners();
     }
 
-    @PostMapping("/awardee")                                        //Endpoint For Storing Awardee Details
+    @PostMapping("/awardee")                                                //Endpoint For Storing Awardee Details
     public AwardWinner addAwardee(@RequestBody AwardWinner awardeeDetails) {
         System.out.println(awardeeDetails.getName());
         AwardWinner saved = awardeeService.createAwardee(awardeeDetails);
         return saved;
     }
+
+    @DeleteMapping("/awardee/{id}")                                   //Endpoint For Delete Single Awardee Details
+    public String awardeeDel(@PathVariable("id") int id) {
+        return awardeeService.removeAwardee(id);
+    }
+
+    @DeleteMapping("/awardee")                                           //Endpoint For Delete All Awardee Details
+    public String allAwardeeDel() {
+        return awardeeService.removeAllAwardee();
+    }
+
 }
