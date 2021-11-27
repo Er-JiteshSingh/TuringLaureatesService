@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class MainController {
 
     @Autowired
@@ -21,7 +22,6 @@ public class MainController {
 
     @GetMapping("/awardees")                                                //Endpoint For Getting All Awardee Details
     public List<AwardWinner> allAwardees() {
-
         return awardeeService.getAllWinners();
     }
 
