@@ -1,5 +1,7 @@
 package com.turingawardee.minpro.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -16,6 +18,7 @@ public class AwardWinner {
     private String description;
     private String affiliation;
     private String image;
+    @CreationTimestamp
     private Timestamp timestamp;
 
     public AwardWinner() {
